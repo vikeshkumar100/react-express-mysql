@@ -15,7 +15,7 @@ const SignupPage = () => {
       !(email.endsWith("@gmail.com") || email.endsWith("@vitstudent.ac.in")) ||
       password.length < 7
     ) {
-      alert("Enter a valid email and password should be at least 7 characters");
+      alert("Enter a valid email and password should be at least 6 characters");
       return;
     }
 
