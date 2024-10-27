@@ -13,7 +13,7 @@ const SignupPage = () => {
     e.preventDefault();
     if (
       !(email.endsWith("@gmail.com") || email.endsWith("@vitstudent.ac.in")) ||
-      password.length < 7
+      password.length < 6
     ) {
       alert("Enter a valid email and password should be at least 6 characters");
       return;
@@ -73,7 +73,7 @@ const SignupPage = () => {
                 id="show"
                 className="h-4 w-4"
                 onClick={handleToggle}
-                value={toggle}
+                checked={toggle}
               />
               <label htmlFor="show" className="text-sm">
                 Show Password
