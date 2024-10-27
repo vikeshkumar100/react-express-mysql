@@ -11,11 +11,14 @@ const SignupPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(email.endsWith("@gmail.com") || email.endsWith("@vitstudent.ac.in") || password.length < 7)
-      {
-        alert("Enter valid email and password should be atleast 6 characters");
-        return;
-      } 
+    if (
+      !(email.endsWith("@gmail.com") || email.endsWith("@vitstudent.ac.in")) ||
+      password.length < 7
+    ) {
+      alert("Enter a valid email and password should be at least 7 characters");
+      return;
+    }
+
     try {
       setloading(true);
       const res = await axios.post(
@@ -44,14 +47,21 @@ const SignupPage = () => {
             <input
               type="text"
               placeholder="Email ID"
-              className={`w-full p-3 rounded-lg border border-gray-300 text-black shadow-lg ${email.endsWith("@gmail.com") || email.endsWith("@vitstudent.ac.in") ? "shadow-green-500" : "shadow-red-500"}`}
+              className={`w-full p-3 rounded-lg border border-gray-300 text-black shadow-lg ${
+                email.endsWith("@gmail.com") ||
+                email.endsWith("@vitstudent.ac.in")
+                  ? "shadow-green-500"
+                  : "shadow-red-500"
+              }`}
               value={email}
               onChange={(e) => setemail(e.target.value)}
             />
             {/* password  */}
             <input
               placeholder="Password"
-              className={`w-full p-3 rounded-lg border border-gray-300 text-black shadow-lg ${password.length > 5 ? "shadow-green-500" : "shadow-red-500"}`}
+              className={`w-full p-3 rounded-lg border border-gray-300 text-black shadow-lg ${
+                password.length > 5 ? "shadow-green-500" : "shadow-red-500"
+              }`}
               type={toggle ? "text" : "password"}
               value={password}
               onChange={(e) => setpassword(e.target.value)}
