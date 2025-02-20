@@ -3,17 +3,17 @@ import mysql from "mysql";
 import cors from "cors";
 import dotenv from "dotenv";
 
-dotenv.config(); // Load environment variables
+dotenv.config(); 
 
 const app = express();
 app.use(cors({
-    origin: "https://your-frontend-domain.com", // Replace with your frontend URL
+    origin: "https://form-vk.vercel.app/", 
     methods: "GET,POST",
     credentials: true
 }));
 app.use(express.json());
 
-// Ensure environment variables are loaded correctly
+
 console.log("DB HOST:", process.env.DB_HOST);
 console.log("DB USER:", process.env.DB_USER);
 console.log("DB DATABASE:", process.env.DB_DATABASE);
